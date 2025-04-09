@@ -29,5 +29,16 @@
     <Text Include="data.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
+    <Text Include="output.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="sub.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

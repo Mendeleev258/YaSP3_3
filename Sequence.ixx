@@ -23,17 +23,8 @@ private:
     size_t size;
     void adding_by_pointer(ptrNode& ptr, T elem);
     void deleting_by_pointer(ptrNode& ptr);
-public:
-    Sequence();
-    Sequence(const Sequence& other);
-    Sequence(std::ifstream& file);
-    ~Sequence();
-    Sequence<T> operator+(const Sequence& other); // concatenation
-    Sequence<T>& operator=(const Sequence& other);
-    Sequence<T> subseq(const size_t index, const size_t length);
     ptrNode get_head() const { return head; }
     ptrNode get_tail() const { return tail; }
-    T get_elem(ptrNode ptr) const { return ptr->info; }
     ptrNode get_ptr(size_t index) const
     {
         try
@@ -59,17 +50,27 @@ public:
             exit(1);
         }
     }
-    size_t get_size() const { return size; }
-    int get_pos(T elem) const;
-    int get_pos(const Sequence<T>& seq) const;
+    T get_elem(ptrNode ptr) const { return ptr->info; }
     void set_tail(ptrNode ptr) { tail = ptr; }
-    void set_elem(T elem, size_t index);
-    bool is_empty() const { return !head->next; }
     void add_to_head(T elem);
     void add_to_tail(T elem);
     void add_after(ptrNode ptr, T elem);
     void del_from_head();
     void del_after(ptrNode ptr);
+public:
+    Sequence();
+    Sequence(const Sequence& other);
+    Sequence(std::ifstream& file);
+    ~Sequence();
+    Sequence<T> operator+(const Sequence& other); // concatenation
+    Sequence<T>& operator=(const Sequence& other);
+    Sequence<T> subseq(const size_t index, const size_t length);
+    T get_elem(size_t index) { return get_ptr(index)->info; }
+    size_t get_size() const { return size; }
+    int get_pos(T elem) const;
+    int get_pos(const Sequence<T>& seq) const;
+    void set_elem(T elem, size_t index);
+    bool is_empty() const { return !head->next; }
     void del_elem(size_t index);
     void print(const char* message = "", const char* delim = " ", std::ostream& stream = std::cout) const;
     void clear(ptrNode& begin, ptrNode& end);
@@ -123,7 +124,6 @@ Sequence<T>::Sequence(std::ifstream& file)
     while (file >> elem)
     {
         add_to_tail(elem);
-        size++;
     }
 }
 

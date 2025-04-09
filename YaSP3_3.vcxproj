@@ -135,6 +135,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt" />
+    <Text Include="output.txt" />
+    <Text Include="sub.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
