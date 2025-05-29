@@ -1,9 +1,9 @@
-import Sequence;
-import Vector3D;
-
 #include <iostream>
 #include <fstream>
 #include <string>
+
+import Sequence;
+import Vector3D;
 
 template<typename T, typename Predicat>
 void validation(T& x, Predicat condition, const char* message);
